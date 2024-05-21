@@ -70,4 +70,11 @@ resource "aws_route_table" "crm-pvt-rt" {
   }
 }
 
+# crm public association
+resource "aws_route_table_association" "crm-web-asc" {
+  subnet_id      = aws_subnet.crm-web-sn.id
+  route_table_id = aws_route_table.crm-pub-rt.id
+}
+
+
 
