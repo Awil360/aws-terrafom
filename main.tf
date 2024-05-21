@@ -28,3 +28,13 @@ resource "aws_subnet" "crm-api-sn" {
     Name = "crm-api-subnet"
   }
 }
+
+# database subnet
+resource "aws_subnet" "crm-db-sn" {
+  vpc_id     = aws_vpc.crm-vpc.id
+  cidr_block = "10.0.3.0/24"
+
+  tags = {
+    Name = "crm-database-subnet"
+  }
+}
