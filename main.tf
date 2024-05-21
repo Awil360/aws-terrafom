@@ -60,3 +60,14 @@ resource "aws_route_table" "crm-pub-rt" {
     Name = "crm-public-route"
   }
 }
+
+# crm private route table
+resource "aws_route_table" "crm-pvt-rt" {
+  vpc_id = aws_vpc.crm-vpc.id
+
+  tags = {
+    Name = "crm-private-route"
+  }
+}
+
+
