@@ -110,3 +110,30 @@ resource "aws_network_acl" "crm-web-nacl" {
 }
 
 
+# crm api nacl
+resource "aws_network_acl" "crm-api-nacl" {
+  vpc_id = aws_vpc.crm-vpc.id
+
+  egress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  tags = {
+    Name = "crm-api-nacl"
+  }
+}
+
