@@ -76,5 +76,10 @@ resource "aws_route_table_association" "crm-web-asc" {
   route_table_id = aws_route_table.crm-pub-rt.id
 }
 
+# crm private association
+resource "aws_route_table_association" "crm-db-asc" {
+  subnet_id      = aws_subnet.crm-db-sn.id
+  route_table_id = aws_route_table.crm-pvt-rt.id
+}
 
 
